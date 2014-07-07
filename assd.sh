@@ -15,6 +15,7 @@
 # 
 # var1 = link to adtbundle
 # var2 = link to moduledocs.zip
+# var3 = path /opt/UEA/ASSD/
 ###
 
 echo "Setting up Linux for Advanced Software Systems Development"
@@ -29,7 +30,7 @@ sudo apt-get update -yqq
  
 echo "Setting up directories..."
 
-sudo mkdir -p /opt/UEA/ASSD
+sudo mkdir -p /opt/UEA/ASSD/
 sudo mkdir -p /home/uea_user/Desktop/ASSD/
 sudo chown -R nobody:users /opt/UEA/ASSD
 sudo chown -R uea_user:users /home/uea_user/Desktop/ASSD
