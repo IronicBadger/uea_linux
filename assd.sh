@@ -32,7 +32,7 @@ echo "Setting up directories..."
 sudo mkdir -p /opt/UEA/ASSD
 sudo mkdir -p /home/uea_user/Desktop/ASSD/
 sudo chown -R nobody:users /opt/UEA/ASSD
-sudo chown -R nobody:users /home/uea_user/Desktop/ASSD
+sudo chown -R uea_user:users /home/uea_user/Desktop/ASSD
 sudo chmod -R 777 /opt/UEA/ASSD 
 sudo chmod 777 -R /home/uea_user/Desktop/ASSD
 
@@ -54,8 +54,9 @@ sudo apt-get install -yqq curl expect default-jdk
 
 echo "Downloading Eclipse (ADT Bundle)..."
 cd /opt/UEA/ASSD
-wget http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140624.zip
-unzip adt-bundle-linux-x86_64-20140624.zip
+wget http://dl.google.com/android/adt/adt-bundle-linux-x86_64-20140624.zip -O /opt/UEA/ASSD/adt-bundle.zip
+unzip /opt/UEA/ASSD/adt-bundle.zip
+rm adt-bundle.zip
 ln -s /opt/UEA/ASSD/adt-bundle-linux-x86_64-20140624/eclipse/eclipse /home/uea_user/Desktop/ASSD/eclipse
 
 ###########################################################
