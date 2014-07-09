@@ -1,32 +1,5 @@
 package ModuleSelector;
 import java.awt.EventQueue;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.WindowEvent;
-import java.awt.event.WindowListener;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.io.PrintStream;
-import java.util.Enumeration;
-import java.util.Properties;
-
-import javax.swing.AbstractButton;
-import javax.swing.ButtonGroup;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JRadioButton;
-import javax.swing.LayoutStyle.ComponentPlacement;
-import javax.swing.SwingUtilities;
-import javax.swing.border.EmptyBorder;
 
 
 public class ModuleSelector extends JFrame implements WindowListener,ActionListener {
@@ -160,6 +133,8 @@ public class ModuleSelector extends JFrame implements WindowListener,ActionListe
 			e.printStackTrace();
 		}
 	}
+	
+
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
@@ -213,14 +188,17 @@ public class ModuleSelector extends JFrame implements WindowListener,ActionListe
 					output = new FileOutputStream("/opt/UEA/config.ini");
 					prop.setProperty("ASSDinstalled", "true");
 					prop.store(output, null);
+					
 				}
+				JOptionPane.showMessageDialog(
+						null, 
+						"ASSD module is now installed. \n" +
+						"\n" +		
+						"Tools and documentation are located in the\n" +
+						"new ASSD folder on your Desktop.",
+						"Congratulations!",
+						JOptionPane.INFORMATION_MESSAGE);
 
-
-				
-				System.out.println("3");
-				//java.lang.Runtime.getRuntime().exec("/bin/bash -c /opt/UEA/assd.sh");
-				//btnASSD.setEnabled(false);
-				
 			} 
 			catch (IOException | InterruptedException e1) {
 				e1.printStackTrace();
