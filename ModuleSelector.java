@@ -1,10 +1,35 @@
 package ModuleSelector;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.io.PrintStream;
+import java.util.Enumeration;
+import java.util.Properties;
+
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.SwingUtilities;
+import javax.swing.border.EmptyBorder;
 
 
 public class ModuleSelector extends JFrame implements WindowListener,ActionListener {
-	
-	private int numClicks = 0;
 
 	private JPanel contentPane;
 	JButton btnASSD = new JButton("Setup selected module");
@@ -242,36 +267,6 @@ public class ModuleSelector extends JFrame implements WindowListener,ActionListe
         return null;
     }
 
-	  private void updateTextArea(final String text) {
-		    SwingUtilities.invokeLater(new Runnable() {
-		      public void run() {
-		        //textArea.append(text);
-		      }
-		    });
-		  }
-
-		  private void redirectSystemStreams() {
-		    OutputStream out = new OutputStream() {
-		      @Override
-		      public void write(int b) throws IOException {
-		        updateTextArea(String.valueOf((char) b));
-		      }
-
-		      @Override
-		      public void write(byte[] b, int off, int len) throws IOException {
-		        updateTextArea(new String(b, off, len));
-		      }
-
-		      @Override
-		      public void write(byte[] b) throws IOException {
-		        write(b, 0, b.length);
-		      }
-		    };
-
-		    System.setOut(new PrintStream(out, true));
-		    System.setErr(new PrintStream(out, true));
-		  }
-	
 	@Override
 	public void windowActivated(WindowEvent arg0) {
 		// TODO Auto-generated method stub
