@@ -23,8 +23,8 @@ sudo apt-get update -yqq
 echo "Setting up directories..."
 
 sudo mkdir -p "/home/uea_user/Desktop/UEA_Linux/Databases"
-sudo chown -R uea_user:users "/home/uea_user/Desktop/UEA_Linux/Databases"
-sudo chmod 777 -R "/home/uea_user/Desktop/UEA_Linux/Databases"
+sudo chown -R uea_user:users "/home/uea_user/Desktop/UEA_Linux"
+sudo chmod 777 -R "/home/uea_user/Desktop/UEA_Linux"
 
 # Download module documentation (to be completed later)
 echo "Downloading module documentation (labsheets, source code, etc)..."
