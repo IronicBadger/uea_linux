@@ -41,6 +41,7 @@ echo "Downloading module documentation (labsheets, source code, etc)..."
 
 echo "Installing postgresql..."
 sudo apt-get install -yqq postgresql pgadmin3 dia
+sudo -u postgres psql -U postgres -d postgres -c "alter user postgres with password 'uea';"
 
 
 ###########################################################
